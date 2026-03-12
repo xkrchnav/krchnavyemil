@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import bikeImg from '../assets/bike-detail.jpg';
+import fansImg from '../assets/tail-fans.jpg';
+
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+---
+
+<section id="machine" class="py-24 bg-zinc-950 relative overflow-hidden">
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-14">
+      <h2 class="text-white font-bold italic uppercase text-4xl md:text-5xl tracking-tight" style="font-family: 'Oswald', sans-serif;">
+        {t.machine.title}
+      </h2>
+      <div class="h-px flex-1 bg-zinc-700"></div>
+    </div>
+
+    <!-- Bike + Specs Grid -->
+    <div class="grid lg:grid-cols-2 gap-10 mb-16 items-center">
+
+      <!-- Bike Image -->
+      <div class="relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group"
+           style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+        <Image
+          src={bikeImg}
+          alt="Kawasaki ZX-10R #87"
+          class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+          widths={[600, 900]}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-zinc-950/60 to-transparent"></div>
+        <!-- Bike name overlay -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-zinc-950 to-transparent">
+          <p class="text-[#39FF14] font-bold italic uppercase text-2xl tracking-tight" style="font-family: 'Oswald', sans-serif;">{t.machine.bike_title}</p>
+        </div>
+      </div>
+
+      <!-- Specs Table -->
+      <div>
+        <h3 class="text-[#39FF14] font-bold italic uppercase text-2xl mb-6 tracking-tight" style="font-family: 'Oswald', sans-serif;">
+          {t.machine.bike_title}
+        </h3>
+        <div class="divide-y divide-zinc-800">
+          {t.machine.bike_specs.map((spec: {label: string; value: string}) => (
+            <div class="flex items-center justify-between py-3 group hover:bg-zinc-900 px-2 transition-colors">
+              <span class="text-zinc-400 text-sm uppercase tracking-widest font-semibold">{spec.label}</span>
+              <span class="text-white font-bold text-sm uppercase tracking-wide">{spec.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Wall of Fame -->
+    <div class="relative overflow-hidden border-l-4 border-[#39FF14]"
+         style="clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);">
+      <div class="grid md:grid-cols-2 gap-0">
+
+        <!-- Fan image -->
+        <div class="relative overflow-hidden group">
+          <Image
+            src={fansImg}
+            alt="Tail fairing with fan names"
+            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
+            widths={[600, 900]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-950/80"></div>
+        </div>
+
+        <!-- Fan text -->
+        <div class="bg-zinc-900 flex flex-col justify-center p-8 md:p-12">
+          <span class="text-[#39FF14] font-bold italic text-5xl mb-4 leading-none" style="font-family: 'Oswald', sans-serif;">"</span>
+          <h3
+            class="text-white font-bold italic uppercase leading-tight mb-4"
+            style="font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: 'Oswald', sans-serif;"
+          >
+            {t.machine.fans_title}
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">
+            {t.machine.fans_subtitle}
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

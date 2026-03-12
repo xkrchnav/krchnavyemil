@@ -1,0 +1,76 @@
+---
+import type { ImageMetadata } from 'astro';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import NW200 from '../../components/NW200.astro';
+import Highlights from '../../components/Highlights.astro';
+import Gallery from '../../components/Gallery.astro';
+import Machine from '../../components/Machine.astro';
+import Sponsors from '../../components/Sponsors.astro';
+import Contact from '../../components/Contact.astro';
+import en from '../../i18n/en.json';
+import galleryCurve from '../../assets/gallery/curve.jpg';
+import galleryCurve2 from '../../assets/gallery/curve2.jpg';
+import galleryCurveBlurredSuper from '../../assets/gallery/curveBlurredSuper.jpg';
+import galleryCurveBlurredSuper2 from '../../assets/gallery/curveBlurredSuper2.jpg';
+import galleryCurveRace from '../../assets/gallery/curveRace.jpg';
+import galleryCurveRaceManyRiders from '../../assets/gallery/curveRaceManyRiders.jpg';
+import galleryDepo from '../../assets/gallery/depo.jpg';
+import galleryDepo2 from '../../assets/gallery/depo2.jpg';
+import galleryDepo3Partner from '../../assets/gallery/depo3partner.jpg';
+import galleryDepoInAction from '../../assets/gallery/depoInAction.jpg';
+import galleryPlan2026 from '../../assets/gallery/plan2026.jpg';
+import galleryPromo from '../../assets/gallery/promo.jpg';
+import galleryPromoBikeOnly from '../../assets/gallery/promoBikeOnly.jpg';
+import galleryPromoBikeOnly2 from '../../assets/gallery/promoBikeOnly2.jpg';
+import gallerySuperCurve from '../../assets/gallery/superCurve.jpg';
+import galleryTeam from '../../assets/gallery/team.jpg';
+import galleryThuringerPromo from '../../assets/gallery/thuringerPromo.jpg';
+import galleryWheel from '../../assets/gallery/wheel.jpg';
+import galleryWheel2 from '../../assets/gallery/wheel2.jpg';
+import galleryWheel3 from '../../assets/gallery/wheel3.jpg';
+import galleryWheelBlur from '../../assets/gallery/wheelBlur.jpg';
+
+const t = en;
+
+/*
+ * ADD PHOTOS HERE — import any image from src/assets/ and append to this array.
+ */
+const galleryPhotos: { src: ImageMetadata; alt: string; caption?: string }[] = [
+  { src: galleryCurve, alt: 'Emil Krchnavy #87 leaning into a corner', caption: 'Cornering shot' },
+  { src: galleryCurve2, alt: 'Emil Krchnavy #87 in a second cornering angle', caption: 'Cornering shot II' },
+  { src: galleryCurveBlurredSuper, alt: 'Superbike corner with speed blur', caption: 'Superbike corner blur' },
+  { src: galleryCurveBlurredSuper2, alt: 'Superbike corner with motion blur, second angle', caption: 'Superbike corner blur II' },
+  { src: galleryCurveRace, alt: 'Emil Krchnavy racing through a fast corner', caption: 'Race corner action' },
+  { src: galleryCurveRaceManyRiders, alt: 'Group of riders entering a corner during race', caption: 'Race pack in corner' },
+  { src: galleryDepo, alt: 'Paddock scene with Emil Krchnavy team setup', caption: 'Paddock setup' },
+  { src: galleryDepo2, alt: 'Paddock preparations before race session', caption: 'Paddock preparations' },
+  { src: galleryDepo3Partner, alt: 'Partner area and support in paddock', caption: 'Partner area in paddock' },
+  { src: galleryDepoInAction, alt: 'On-site paddock action with race team', caption: 'Paddock action' },
+  { src: galleryPlan2026, alt: 'Visual for Emil Krchnavy 2026 race season plan', caption: '2026 season plan' },
+  { src: galleryPromo, alt: 'Promotional portrait of Emil Krchnavy #87', caption: 'Promotional portrait' },
+  { src: galleryPromoBikeOnly, alt: 'Studio-style promotional shot of the race bike', caption: 'Bike-only promo shot' },
+  { src: galleryPromoBikeOnly2, alt: 'Second promotional shot of the race bike', caption: 'Bike-only promo shot II' },
+  { src: gallerySuperCurve, alt: 'Superbike leaning hard in a sweeping corner', caption: 'Superbike in fast corner' },
+  { src: galleryTeam, alt: 'Team photo with Emil Krchnavy race crew', caption: 'Team photo' },
+  { src: galleryThuringerPromo, alt: 'Promotional session in Thuringer setting', caption: 'Thuringer promo session' },
+  { src: galleryWheel, alt: 'Close-up of the race bike rear wheel', caption: 'Rear wheel close-up' },
+  { src: galleryWheel2, alt: 'Second close-up of the race bike wheel', caption: 'Rear wheel close-up II' },
+  { src: galleryWheel3, alt: 'Third close-up detail of the race bike wheel', caption: 'Rear wheel close-up III' },
+  { src: galleryWheelBlur, alt: 'Spinning race wheel with motion blur effect', caption: 'Wheel motion blur' },
+];
+---
+
+<Layout
+  t={t}
+  title="Emil Krchňavý #87 – Slovak Road Racer"
+  description="Official page of Emil Krchňavý #87, professional Slovak road racer. IRRC Superbike, NW200 2025 – first Slovak ever."
+>
+  <Hero t={t} />
+  <NW200 t={t} />
+  <Highlights t={t} />
+  <Gallery t={t} photos={galleryPhotos} />
+  <Machine t={t} />
+  <Sponsors t={t} />
+  <Contact t={t} />
+</Layout>

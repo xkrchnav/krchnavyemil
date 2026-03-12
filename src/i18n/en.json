@@ -1,0 +1,96 @@
+{
+  "lang": "en",
+  "nav": {
+    "highlights": "Career",
+    "nw200": "NW200",
+    "machine": "The Machine",
+    "sponsors": "Partners",
+    "contact": "Contact",
+    "lang_switch": "SK",
+    "lang_switch_href": "/"
+  },
+  "hero": {
+    "subtitle": "Official page of 🇸🇰 road racer",
+    "name": "EMIL KRCHŇAVÝ",
+    "category": "Superbike / Superstock 1000",
+    "cta_primary": "Follow the Season",
+    "cta_primary_href": "#updates",
+    "cta_secondary": "Support NW200",
+    "cta_secondary_href": "#nw200"
+  },
+  "nw200": {
+    "badge": "Slovak motorsport history",
+    "title": "North West 200 2025",
+    "subtitle": "The first Slovak rider ever to compete at the legendary road race.",
+    "flag": "🇸🇰",
+    "article_label": "Press Release – Dynamax Oil",
+    "article_title": "First Slovak at the legendary Northwest 200",
+    "article_excerpt": "Emil Krchňavý is rewriting the history of Slovak motorsport. He will start at one of the fastest and most dangerous races in the world.",
+    "article_link": "https://www.dynamaxoil.com/emil-krchnavy-prvy-slovak-na-legendarnom-northwest-200/",
+    "article_cta": "Read more →",
+    "poster_alt": "NW200 2025 – crowdfunding poster",
+    "letter_alt": "Official Briggs Equipment entry acceptance letter – NW200 2025"
+  },
+  "highlights": {
+    "title": "Career & Results",
+    "sk_cup_title": "Slovakia Cup +600",
+    "sk_cup_results": [
+      { "year": "2020", "medal": "🥈", "label": "Vice-Champion" },
+      { "year": "2021", "medal": "🥇", "label": "Slovak Champion" },
+      { "year": "2022", "medal": "🥈", "label": "Vice-Champion" }
+    ],
+    "irrc_title": "IRRC Superbike",
+    "irrc_since": "Championship rider since 2022",
+    "top10_title": "TOP 10 IRRC",
+    "top10_results": [
+      { "race": "Horice", "year": "2023" },
+      { "race": "Frohburg", "year": "2024" }
+    ]
+  },
+  "machine": {
+    "title": "The Machine & Team",
+    "bike_title": "Kawasaki ZX-10R",
+    "bike_specs": [
+      { "label": "Engine", "value": "998cc Inline-4" },
+      { "label": "Power", "value": "~200 HP" },
+      { "label": "Tyres", "value": "Mitas" },
+      { "label": "Oil", "value": "Dynamax" },
+      { "label": "Protection", "value": "Komaxit" },
+      { "label": "Team", "value": "KRS Racing by ZD-Motorsport" }
+    ],
+    "fans_title": "Driven forward thanks to you.",
+    "fans_subtitle": "The names of every fan and supporter are written on his ZX-10R fairing. Every name is part of every kilometre."
+  },
+  "sponsors": {
+    "title": "Partners & Sponsors",
+    "subtitle": "The people and brands behind every sixth gear.",
+    "partners": [
+      { "name": "ZD-Motorsport / KRS Racing", "role": "Main Team" },
+      { "name": "Dynamax Oil", "role": "Title Sponsor" },
+      { "name": "Mitas", "role": "Tyres" },
+      { "name": "Komaxit", "role": "Surface Protection" }
+    ],
+    "cta": "Become a Partner",
+    "cta_href": "#contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Partnership inquiries, media requests or fan mail.",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_submit": "Send",
+    "socials_title": "Follow the races live",
+    "facebook": "https://www.facebook.com/emilkrchnavy87",
+    "instagram": "https://www.instagram.com/emilkrchnavy87/"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "photo_singular": "photo",
+    "photo_plural": "photos"
+  },
+  "footer": {
+    "copy": "© 2026 Emil Krchňavý #87. All rights reserved.",
+    "made": "Built for speed."
+  }
+}

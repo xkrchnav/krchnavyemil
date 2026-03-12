@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import wheelieImg from '../assets/wheelie-crest.jpg';
+import podiumImg from '../assets/podium-trophy.jpg';
+
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+---
+
+<section id="highlights" class="py-24 bg-zinc-900 relative overflow-hidden">
+  <!-- Decorative bg number -->
+  <span
+    class="absolute left-0 top-1/2 -translate-y-1/2 font-bold italic text-white/[0.03] select-none pointer-events-none leading-none"
+    style="font-size: 40vw; font-family: 'Oswald', sans-serif;"
+    aria-hidden="true"
+  >87</span>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4">
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-14">
+      <span class="text-[#39FF14] font-bold italic text-5xl" style="font-family: 'Oswald', sans-serif;">#</span>
+      <h2 class="text-white font-bold italic uppercase text-4xl md:text-5xl tracking-tight" style="font-family: 'Oswald', sans-serif;">
+        {t.highlights.title}
+      </h2>
+      <div class="h-px flex-1 bg-zinc-700"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Stats Column -->
+      <div class="space-y-10">
+
+        <!-- Slovakia Cup -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-1 h-8 bg-[#39FF14]"></div>
+            <h3 class="text-white font-bold uppercase text-xl tracking-widest" style="font-family: 'Oswald', sans-serif;">
+              {t.highlights.sk_cup_title}
+            </h3>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            {t.highlights.sk_cup_results.map((r: {year: string; medal: string; label: string}) => (
+              <div class="bg-zinc-950 border border-zinc-700 p-4 text-center hover:border-[#39FF14] transition-all group">
+                <span class="text-3xl block mb-1">{r.medal}</span>
+                <span class="text-[#39FF14] font-bold text-lg block" style="font-family: 'Oswald', sans-serif;">{r.year}</span>
+                <span class="text-zinc-400 text-xs uppercase tracking-widest">{r.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- IRRC -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-1 h-8 bg-[#FF0000]"></div>
+            <h3 class="text-white font-bold uppercase text-xl tracking-widest" style="font-family: 'Oswald', sans-serif;">
+              {t.highlights.irrc_title}
+            </h3>
+          </div>
+          <div class="bg-zinc-950 border border-zinc-700 p-5 hover:border-[#FF0000] transition-all">
+            <p class="text-zinc-300 font-semibold uppercase tracking-widest text-sm">{t.highlights.irrc_since}</p>
+          </div>
+        </div>
+
+        <!-- TOP 10 -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-1 h-8 bg-[#39FF14]"></div>
+            <h3 class="text-white font-bold uppercase text-xl tracking-widest" style="font-family: 'Oswald', sans-serif;">
+              {t.highlights.top10_title}
+            </h3>
+          </div>
+          <div class="space-y-3">
+            {t.highlights.top10_results.map((r: {race: string; year: string}) => (
+              <div class="flex items-center gap-4 bg-zinc-950 border border-zinc-700 p-4 hover:border-[#39FF14] transition-all group">
+                <span class="text-[#39FF14] font-bold text-2xl italic" style="font-family: 'Oswald', sans-serif;">TOP10</span>
+                <div>
+                  <span class="text-white font-bold uppercase tracking-widest text-base">{r.race}</span>
+                  <span class="text-zinc-400 text-sm ml-2">{r.year}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Gallery Column -->
+      <div class="grid grid-cols-2 gap-3 h-fit">
+        <div class="relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group col-span-2">
+          <Image
+            src={wheelieImg}
+            alt="Emil Krchňavý – wheelie"
+            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            widths={[600, 900]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+          <span class="absolute bottom-4 left-4 text-[#39FF14] font-bold italic text-sm uppercase tracking-widest">#87</span>
+        </div>
+        <div class="relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group col-span-2">
+          <Image
+            src={podiumImg}
+            alt="Emil Krchňavý – podium trophy"
+            class="w-full h-52 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            widths={[600, 900]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/70 to-transparent"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

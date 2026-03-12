@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import zdImg from '../assets/zd-motorsport.jpg';
+
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+---
+
+<section id="sponsors" class="py-24 bg-zinc-900 relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-6">
+      <h2 class="text-white font-bold italic uppercase text-4xl md:text-5xl tracking-tight" style="font-family: 'Oswald', sans-serif;">
+        {t.sponsors.title}
+      </h2>
+      <div class="h-px flex-1 bg-zinc-700"></div>
+    </div>
+    <p class="text-zinc-400 mb-14 max-w-xl">{t.sponsors.subtitle}</p>
+
+    <!-- Partner Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+
+      <!-- ZD-Motorsport – featured card -->
+      <div class="lg:col-span-2 relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group bg-zinc-950">
+        <Image
+          src={zdImg}
+          alt="ZD-Motorsport / KRS Racing"
+          class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105 opacity-70 group-hover:opacity-90"
+          widths={[600, 900]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-5">
+          <span class="text-[#39FF14] font-bold uppercase text-xs tracking-widest block mb-1">{t.sponsors.partners[0].role}</span>
+          <p class="text-white font-bold italic uppercase text-xl" style="font-family: 'Oswald', sans-serif;">{t.sponsors.partners[0].name}</p>
+        </div>
+      </div>
+
+      <!-- Other sponsors -->
+      {t.sponsors.partners.slice(1).map((p: {name: string; role: string}) => (
+        <div class="bg-zinc-950 border border-zinc-700 hover:border-[#39FF14] transition-all p-6 flex flex-col justify-between group">
+          <span class="text-[#39FF14] font-bold uppercase text-xs tracking-widest mb-2 block">{p.role}</span>
+          <p class="text-white font-bold italic uppercase text-lg group-hover:text-[#39FF14] transition-colors" style="font-family: 'Oswald', sans-serif;">{p.name}</p>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Become a Partner CTA -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 border border-zinc-700 p-6 bg-zinc-950 hover:border-[#39FF14] transition-all"
+         style="clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);">
+      <div class="flex-1">
+        <p class="text-white font-bold uppercase text-lg italic" style="font-family: 'Oswald', sans-serif;">{t.sponsors.cta} / Become a Partner</p>
+      </div>
+      <a
+        href={t.sponsors.cta_href}
+        class="inline-block bg-[#39FF14] text-zinc-950 font-bold uppercase tracking-widest text-sm px-8 py-3 hover:bg-[#39FF14]/80 transition-all whitespace-nowrap"
+      >
+        {t.sponsors.cta} →
+      </a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/hero-action.jpg';
+
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <Image
+    src={heroImg}
+    alt="Emil Krchňavý #87 in action"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    widths={[800, 1200, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <!-- Dark vignette overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/30"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-zinc-950/80 via-transparent to-zinc-950/40"></div>
+
+  <!-- Huge #87 watermark -->
+  <span
+    class="absolute right-[-2rem] md:right-4 top-1/2 -translate-y-1/2 text-[#39FF14] font-bold italic select-none pointer-events-none leading-none"
+    style="font-size: clamp(10rem, 30vw, 22rem); opacity: 0.12; font-family: 'Oswald', sans-serif;"
+    aria-hidden="true"
+  >#87</span>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 pt-20 pb-16">
+    <div class="max-w-3xl">
+      <!-- Subtitle -->
+      <p class="text-zinc-300 text-sm uppercase tracking-[0.25em] font-semibold mb-3">
+        {t.hero.subtitle}
+      </p>
+
+      <!-- Main Title -->
+      <h1
+        class="font-bold italic uppercase leading-none tracking-tighter text-white mb-2"
+        style="font-size: clamp(3.5rem, 10vw, 8rem); font-family: 'Oswald', sans-serif;"
+      >
+        {t.hero.name}
+      </h1>
+
+      <!-- Number accent -->
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-[#39FF14] font-bold italic text-4xl md:text-5xl" style="font-family: 'Oswald', sans-serif;">#87</span>
+        <div class="h-px flex-1 bg-gradient-to-r from-[#39FF14]/60 to-transparent"></div>
+      </div>
+
+      <!-- Category -->
+      <p class="text-zinc-300 uppercase tracking-widest text-base md:text-lg font-semibold mb-10">
+        {t.hero.category}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={t.hero.cta_primary_href}
+          class="inline-block bg-[#39FF14] text-zinc-950 font-bold uppercase tracking-widest text-sm px-8 py-3 hover:bg-[#39FF14]/80 transition-all active:scale-95"
+        >
+          {t.hero.cta_primary}
+        </a>
+        <a
+          href={t.hero.cta_secondary_href}
+          class="inline-block border-2 border-[#FF0000] text-white font-bold uppercase tracking-widest text-sm px-8 py-3 hover:bg-[#FF0000] transition-all active:scale-95"
+        >
+          {t.hero.cta_secondary}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom edge cut -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-zinc-950 to-transparent"></div>
+</section>

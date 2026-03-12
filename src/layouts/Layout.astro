@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  t: Record<string, any>;
+  title?: string;
+  description?: string;
+}
+
+const { t, title = 'Emil Krchňavý #87 – Slovak Road Racer', description = 'Official website of Emil Krchňavý #87, professional Slovak road racer competing in IRRC and NW200.' } = Astro.props;
+const lang = t.lang as string;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-zinc-950 text-white font-display antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
+        <!-- Logo -->
+        <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2 group">
+          <span class="text-[#39FF14] font-bold text-2xl italic tracking-tighter leading-none">#87</span>
+          <span class="text-white font-semibold text-sm uppercase tracking-widest hidden sm:block">Emil Krchňavý</span>
+        </a>
+
+        <!-- Nav Links -->
+        <ul class="hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold">
+          <li><a href={lang === 'en' ? '/en/#nw200' : '/#nw200'} class="hover:text-[#39FF14] transition-colors">{t.nav.nw200}</a></li>
+          <li><a href={lang === 'en' ? '/en/#highlights' : '/#highlights'} class="hover:text-[#39FF14] transition-colors">{t.nav.highlights}</a></li>
+          <li><a href={lang === 'en' ? '/en/#machine' : '/#machine'} class="hover:text-[#39FF14] transition-colors">{t.nav.machine}</a></li>
+          <li><a href={lang === 'en' ? '/en/#sponsors' : '/#sponsors'} class="hover:text-[#39FF14] transition-colors">{t.nav.sponsors}</a></li>
+          <li><a href={lang === 'en' ? '/en/#contact' : '/#contact'} class="hover:text-[#39FF14] transition-colors">{t.nav.contact}</a></li>
+        </ul>
+
+        <!-- Lang Switch -->
+        <a
+          href={t.nav.lang_switch_href}
+          class="text-xs font-bold uppercase tracking-widest border border-zinc-600 hover:border-[#39FF14] hover:text-[#39FF14] px-3 py-1.5 transition-all"
+        >{t.nav.lang_switch}</a>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <slot />
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-10 mt-0">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-[#39FF14] font-bold text-3xl italic">#87</span>
+          <div>
+            <p class="text-white font-semibold uppercase tracking-widest text-sm">EMIL KRCHŇAVÝ</p>
+            <p class="text-zinc-500 text-xs">{t.footer.made}</p>
+          </div>
+        </div>
+        <p class="text-zinc-500 text-xs text-center">{t.footer.copy}</p>
+        <div class="flex gap-4">
+          <a href={t.contact.facebook} target="_blank" rel="noopener" aria-label="Facebook"
+             class="text-zinc-400 hover:text-[#39FF14] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+            </svg>
+          </a>
+          <a href={t.contact.instagram} target="_blank" rel="noopener" aria-label="Instagram"
+             class="text-zinc-400 hover:text-[#39FF14] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

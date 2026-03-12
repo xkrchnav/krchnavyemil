@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import posterImg from '../assets/nw200-poster.jpg';
+import letterImg from '../assets/nw200-letter.jpg';
+
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+---
+
+<section id="nw200" class="relative py-24 overflow-hidden bg-zinc-950">
+  <!-- Background texture lines -->
+  <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, #39FF14 0, #39FF14 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4">
+
+    <!-- Badge -->
+    <div class="flex items-center gap-3 mb-6">
+      <span class="inline-block bg-[#FF0000] text-white text-xs font-bold uppercase tracking-widest px-3 py-1">{t.nw200.badge}</span>
+      <div class="h-px flex-1 bg-gradient-to-r from-[#FF0000]/60 to-transparent max-w-xs"></div>
+    </div>
+
+    <!-- Main headline – skewed container -->
+    <div class="relative mb-12">
+      <div
+        class="inline-block bg-gradient-to-r from-[#FF0000]/10 to-[#39FF14]/10 border-l-4 border-[#39FF14] pl-6 pr-10 py-6"
+        style="clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);"
+      >
+        <h2
+          class="font-bold italic uppercase leading-none text-white mb-2"
+          style="font-size: clamp(2.5rem, 7vw, 5.5rem); font-family: 'Oswald', sans-serif;"
+        >
+          {t.nw200.title}
+        </h2>
+        <p class="text-zinc-300 text-base md:text-xl font-medium max-w-2xl">
+          <span class="text-2xl mr-2">{t.nw200.flag}</span>{t.nw200.subtitle}
+        </p>
+      </div>
+
+      <!-- Slovak tricolor accent strip -->
+      <div class="flex h-1 max-w-sm mt-4">
+        <div class="flex-1 bg-white"></div>
+        <div class="flex-1 bg-[#003DA5]"></div>
+        <div class="flex-1 bg-[#FF0000]"></div>
+      </div>
+    </div>
+
+    <!-- Content grid -->
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+
+      <!-- PR Article Card -->
+      <div class="group relative border border-zinc-700 hover:border-[#39FF14] transition-all overflow-hidden bg-zinc-900">
+        <!-- Green top accent -->
+        <div class="h-1 bg-gradient-to-r from-[#39FF14] to-[#FF0000]"></div>
+        <div class="p-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 block">{t.nw200.article_label}</span>
+          <h3 class="text-white font-bold uppercase text-xl italic mb-3 group-hover:text-[#39FF14] transition-colors" style="font-family: 'Oswald', sans-serif;">
+            {t.nw200.article_title}
+          </h3>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-6">{t.nw200.article_excerpt}</p>
+          <a
+            href={t.nw200.article_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[#39FF14] font-bold uppercase text-sm tracking-widest hover:gap-4 transition-all"
+          >
+            {t.nw200.article_cta}
+          </a>
+        </div>
+      </div>
+
+      <!-- Images stack -->
+      <div class="flex flex-col gap-4">
+        <div class="relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group">
+          <Image
+            src={posterImg}
+            alt={t.nw200.poster_alt}
+            class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            widths={[600, 900]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 to-transparent"></div>
+        </div>
+        <div class="relative overflow-hidden border border-zinc-700 hover:border-[#39FF14] transition-all group">
+          <Image
+            src={letterImg}
+            alt={t.nw200.letter_alt}
+            class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            widths={[600, 900]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 to-transparent"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

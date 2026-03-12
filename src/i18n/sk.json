@@ -1,0 +1,96 @@
+{
+  "lang": "sk",
+  "nav": {
+    "highlights": "Kariéra",
+    "nw200": "NW200",
+    "machine": "Stroj",
+    "sponsors": "Partneri",
+    "contact": "Kontakt",
+    "lang_switch": "EN",
+    "lang_switch_href": "/en/"
+  },
+  "hero": {
+    "subtitle": "Oficiálna stránka 🇸🇰 pretekára",
+    "name": "EMIL KRCHŇAVÝ",
+    "category": "Superbike / Superstock 1000",
+    "cta_primary": "Sleduj Sezónu",
+    "cta_primary_href": "#updates",
+    "cta_secondary": "Podpor NW200",
+    "cta_secondary_href": "#nw200"
+  },
+  "nw200": {
+    "badge": "História slovenského motoršportu",
+    "title": "North West 200 2025",
+    "subtitle": "Prvý slovenský jazdec v histórii legendárneho pretekovéhopodujatia.",
+    "flag": "🇸🇰",
+    "article_label": "Tlačová správa – Dynamax Oil",
+    "article_title": "Prvý Slovák na legendárnom Northwest 200",
+    "article_excerpt": "Emil Krchňavý prepisuje históriu slovenského motoršportu. Bude štartovať na jednom z najrýchlejších a najnebezpečnejších pretekov sveta.",
+    "article_link": "https://www.dynamaxoil.com/emil-krchnavy-prvy-slovak-na-legendarnom-northwest-200/",
+    "article_cta": "Čítaj viac →",
+    "poster_alt": "NW200 2025 – crowdfundingový poster",
+    "letter_alt": "Officiálny akceptačný list Briggs Equipment – NW200 2025"
+  },
+  "highlights": {
+    "title": "Kariéra & Výsledky",
+    "sk_cup_title": "Slovakia Cup +600",
+    "sk_cup_results": [
+      { "year": "2020", "medal": "🥈", "label": "Vicemajster" },
+      { "year": "2021", "medal": "🥇", "label": "Majster Slovenska" },
+      { "year": "2022", "medal": "🥈", "label": "Vicemajster" }
+    ],
+    "irrc_title": "IRRC Superbike",
+    "irrc_since": "Jazdec majstrovstiev od roku 2022",
+    "top10_title": "TOP 10 IRRC",
+    "top10_results": [
+      { "race": "Horice", "year": "2023" },
+      { "race": "Frohburg", "year": "2024" }
+    ]
+  },
+  "machine": {
+    "title": "Stroj & Tím",
+    "bike_title": "Kawasaki ZX-10R",
+    "bike_specs": [
+      { "label": "Motor", "value": "998cc Inline-4" },
+      { "label": "Výkon", "value": "~200 HP" },
+      { "label": "Pneumatiky", "value": "Mitas" },
+      { "label": "Olej", "value": "Dynamax" },
+      { "label": "Ochrana", "value": "Komaxit" },
+      { "label": "Tím", "value": "KRS Racing by ZD-Motorsport" }
+    ],
+    "fans_title": "Hnaný vpred vďaka vám.",
+    "fans_subtitle": "Na kapote jeho ZX-10R sú napísané mená každého fanúšika a podporovateľa. Každé meno je súčasťou každého kilometra."
+  },
+  "sponsors": {
+    "title": "Partneri & Sponzori",
+    "subtitle": "Ľudia a značky, ktoré stoja za každým šiestym rýchlostným stupňom.",
+    "partners": [
+      { "name": "ZD-Motorsport / KRS Racing", "role": "Hlavný tím" },
+      { "name": "Dynamax Oil", "role": "Hlavný sponzor" },
+      { "name": "Mitas", "role": "Pneumatiky" },
+      { "name": "Komaxit", "role": "Povrchová ochrana" }
+    ],
+    "cta": "Staň sa partnerom",
+    "cta_href": "#contact"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Záujem o partnerstvo, media alebo fanúšikovská pošta.",
+    "form_name": "Meno",
+    "form_email": "E-mail",
+    "form_message": "Správa",
+    "form_submit": "Odoslať",
+    "socials_title": "Sleduj preteky naživo",
+    "facebook": "https://www.facebook.com/emilkrchnavy87",
+    "instagram": "https://www.instagram.com/emilkrchnavy87/"
+  },
+  "gallery": {
+    "title": "Galéria",
+    "photo_singular": "fotka",
+    "photo_plural": "fotiek"
+  },
+  "footer": {
+    "copy": "© 2026 Emil Krchňavý #87. Všetky práva vyhradené.",
+    "made": "Navrhnuté pre rýchlosť."
+  }
+}

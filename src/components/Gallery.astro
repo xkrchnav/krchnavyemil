@@ -1,0 +1,88 @@
+---
+/**
+ * Gallery section — drop photos here.
+ * Usage in pages:
+ *
+ *   import Gallery from '../components/Gallery.astro';
+ *   import photo1 from '../assets/photo1.jpg';
+ *   ...
+ *   <Gallery t={t} photos={[
+ *     { src: photo1, alt: 'Caption here' },
+ *     ...
+ *   ]} />
+ *
+ * Photos are displayed in a responsive masonry-style grid.
+ * Supports any number of images — just extend the array.
+ */
+import { Image } from 'astro:assets';
+
+interface GalleryPhoto {
+  src: ImageMetadata;
+  alt: string;
+  /** Optional caption shown on hover */
+  caption?: string;
+}
+
+interface Props {
+  t: Record<string, any>;
+  photos: GalleryPhoto[];
+}
+
+const { t, photos } = Astro.props;
+---
+
+{photos.length > 0 && (
+<section id="gallery" class="py-24 bg-zinc-950 relative overflow-hidden">
+  <!-- Neon top border -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#39FF14]/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-12">
+      <h2
+        class="text-white font-bold italic uppercase text-4xl md:text-5xl tracking-tight"
+        style="font-family: 'Oswald', sans-serif;"
+      >
+        {t.gallery?.title ?? 'Gallery'}
+      </h2>
+      <div class="h-px flex-1 bg-zinc-700"></div>
+      <span class="text-zinc-500 text-sm font-semibold uppercase tracking-widest tabular-nums">
+        {photos.length} {photos.length === 1 ? (t.gallery?.photo_singular ?? 'photo') : (t.gallery?.photo_plural ?? 'photos')}
+      </span>
+    </div>
+
+    <!--
+      Masonry-style CSS columns grid.
+      Add more photos to the array in the page — the grid adapts automatically.
+      Column count: 1 on mobile → 2 on sm → 3 on lg → 4 on xl
+    -->
+    <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3">
+      {photos.map((photo, i) => (
+        <div class="relative overflow-hidden border border-zinc-800 hover:border-[#39FF14] transition-all group mb-3 break-inside-avoid">
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            widths={[400, 800]}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+          />
+          <!-- Hover overlay -->
+          <div class="absolute inset-0 bg-zinc-950/0 group-hover:bg-zinc-950/50 transition-all duration-300 flex items-end">
+            {photo.caption && (
+              <p class="w-full px-3 py-2 text-white text-xs font-semibold uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-zinc-950/80 to-transparent">
+                {photo.caption}
+              </p>
+            )}
+          </div>
+          <!-- Neon corner accent on first photo -->
+          {i === 0 && (
+            <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#39FF14]"></div>
+          )}
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+)}

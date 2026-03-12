@@ -1,17 +1,80 @@
 ---
+import type { ImageMetadata } from 'astro';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import NW200 from '../components/NW200.astro';
+import Highlights from '../components/Highlights.astro';
+import Gallery from '../components/Gallery.astro';
+import Machine from '../components/Machine.astro';
+import Sponsors from '../components/Sponsors.astro';
+import Contact from '../components/Contact.astro';
+import sk from '../i18n/sk.json';
+import galleryCurve from '../assets/gallery/curve.jpg';
+import galleryCurve2 from '../assets/gallery/curve2.jpg';
+import galleryCurveBlurredSuper from '../assets/gallery/curveBlurredSuper.jpg';
+import galleryCurveBlurredSuper2 from '../assets/gallery/curveBlurredSuper2.jpg';
+import galleryCurveRace from '../assets/gallery/curveRace.jpg';
+import galleryCurveRaceManyRiders from '../assets/gallery/curveRaceManyRiders.jpg';
+import galleryDepo from '../assets/gallery/depo.jpg';
+import galleryDepo2 from '../assets/gallery/depo2.jpg';
+import galleryDepo3Partner from '../assets/gallery/depo3partner.jpg';
+import galleryDepoInAction from '../assets/gallery/depoInAction.jpg';
+import galleryPlan2026 from '../assets/gallery/plan2026.jpg';
+import galleryPromo from '../assets/gallery/promo.jpg';
+import galleryPromoBikeOnly from '../assets/gallery/promoBikeOnly.jpg';
+import galleryPromoBikeOnly2 from '../assets/gallery/promoBikeOnly2.jpg';
+import gallerySuperCurve from '../assets/gallery/superCurve.jpg';
+import galleryTeam from '../assets/gallery/team.jpg';
+import galleryThuringerPromo from '../assets/gallery/thuringerPromo.jpg';
+import galleryWheel from '../assets/gallery/wheel.jpg';
+import galleryWheel2 from '../assets/gallery/wheel2.jpg';
+import galleryWheel3 from '../assets/gallery/wheel3.jpg';
+import galleryWheelBlur from '../assets/gallery/wheelBlur.jpg';
 
+const t = sk;
+
+/*
+ * ADD PHOTOS HERE — import any image from src/assets/ and append to this array.
+ * Example:
+ *   import myPhoto from '../assets/my-photo.jpg';
+ *   { src: myPhoto, alt: 'Race at Horice 2024', caption: 'Horice 2024' },
+ */
+const galleryPhotos: { src: ImageMetadata; alt: string; caption?: string }[] = [
+  { src: galleryCurve, alt: 'Emil Krchňavý #87 v náklone do zákruty', caption: 'Záber zo zákruty' },
+  { src: galleryCurve2, alt: 'Emil Krchňavý #87 v druhom nájazde do zákruty', caption: 'Záber zo zákruty II' },
+  { src: galleryCurveBlurredSuper, alt: 'Superbike v zákrute s rozmazaním rýchlosti', caption: 'Superbike zákruta - motion blur' },
+  { src: galleryCurveBlurredSuper2, alt: 'Superbike v zákrute s rozmazaním pohybu, druhý uhol', caption: 'Superbike zákruta - motion blur II' },
+  { src: galleryCurveRace, alt: 'Emil Krchňavý v pretekovom tempe v rýchlej zákrute', caption: 'Preteková akcia v zákrute' },
+  { src: galleryCurveRaceManyRiders, alt: 'Skupina jazdcov v nájazde do zákruty počas pretekov', caption: 'Pretekový balík v zákrute' },
+  { src: galleryDepo, alt: 'Depo a tím Emila Krchňavého pred jazdou', caption: 'Depo - príprava' },
+  { src: galleryDepo2, alt: 'Prípravy v depe pred pretekovou jazdou', caption: 'Prípravy v depe' },
+  { src: galleryDepo3Partner, alt: 'Partnerská zóna a podpora v depe', caption: 'Partnerská zóna v depe' },
+  { src: galleryDepoInAction, alt: 'Akcia v depe počas pretekového víkendu', caption: 'Akcia v depe' },
+  { src: galleryPlan2026, alt: 'Vizualizácia plánu sezóny 2026 Emila Krchňavého', caption: 'Plán sezóny 2026' },
+  { src: galleryPromo, alt: 'Promo portrét Emila Krchňavého #87', caption: 'Promo portrét' },
+  { src: galleryPromoBikeOnly, alt: 'Promo záber pretekového motocykla v štúdiovom štýle', caption: 'Promo záber motocykla' },
+  { src: galleryPromoBikeOnly2, alt: 'Druhý promo záber pretekového motocykla', caption: 'Promo záber motocykla II' },
+  { src: gallerySuperCurve, alt: 'Superbike v hlbokom náklone v dlhej zákrute', caption: 'Superbike v rýchlej zákrute' },
+  { src: galleryTeam, alt: 'Tímová fotografia s pretekárskym tímom Emila Krchňavého', caption: 'Tímová fotografia' },
+  { src: galleryThuringerPromo, alt: 'Promo fotenie v durínskom prostredí', caption: 'Durínske promo fotenie' },
+  { src: galleryWheel, alt: 'Detail zadného kolesa pretekového motocykla', caption: 'Detail zadného kolesa' },
+  { src: galleryWheel2, alt: 'Druhý detail pretekového kolesa motocykla', caption: 'Detail zadného kolesa II' },
+  { src: galleryWheel3, alt: 'Tretí detail pretekového kolesa motocykla', caption: 'Detail zadného kolesa III' },
+  { src: galleryWheelBlur, alt: 'Rotujúce pretekové koleso s efektom rozmazania pohybu', caption: 'Motion blur kolesa' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  t={t}
+  title="Emil Krchňavý #87 – Slovenský pretekár"
+  description="Oficiálna stránka Emila Krchňavého #87, profesionálneho slovenského pretekára. IRRC Superbike, NW200 2025 – prvý Slovák v histórii."
+>
+  <Hero t={t} />
+  <NW200 t={t} />
+  <Highlights t={t} />
+  <Gallery t={t} photos={galleryPhotos} />
+  <Machine t={t} />
+  <Sponsors t={t} />
+  <Contact t={t} />
+</Layout>
+
